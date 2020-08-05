@@ -26,13 +26,12 @@ If you know your code is going to run on a single computer then you are better o
 ## Example
 ### Running Locally
 ```python
-from pathlib import Path
 from hpc import HPCMap
 elements = 10
 data = list(range(1, elements+1))
 
 # Run the job locally using multiple processes
-runner = HPCMap(cmd="run.pl", scratch=Path('./exp'))
+runner = HPCMap(cmd="run.pl", scratch='./exp')
 
 # Supports closures
 amount = 2
