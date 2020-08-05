@@ -54,6 +54,7 @@ mapper = runner.map("Multiplier", data, lambda els: list(map(fn, els)), jobs=5)
 # Change one variable
 runner = HPCMap(cmd="queue.pl", scratch=Path('./exp'))
 ```
+![Screenshot of the jobs running](https://raw.githubusercontent.com/jackdeadman/HPC-Map/master/Screenshot%20from%202020-08-05%2011-54-11.png)
 
 ## Usages
 - List of paths to wav files and compute features
