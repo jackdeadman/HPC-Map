@@ -21,19 +21,25 @@ elements = 10
 data = list(range(1, elements+1))
 
 # Run the job locally using multiple processes
-runner = HPCMap(cmd="run.pl", default_jobs=elements, scratch=Path('./exp'))
+runner = HPCMap(cmd="run.pl", scratch=Path('./exp'))
 
 # Supports closures
 amount = 2
 def fn(x):
     return x * amount
 
+# One job per element
 mapper = runner.map("Multiplier", data, fn)
+
 summed = mapper.reduce(lambda a, b: a+b)
 print(summed) # Prints 110
+
+# Or specify the number of jobs
+mapper = runner.map("Multiplier", data, lambda els: list(map(fn, els)), jobs=5)
+# Mapper contains a list of the results from each job
 ```
 ### Running on SGE
 ```python
 # Change one variable
-runner = HPCMap(cmd="queue.pl", default_jobs=elements, scratch=Path('./exp'))
+runner = HPCMap(cmd="queue.pl", scratch=Path('./exp'))
 ```
