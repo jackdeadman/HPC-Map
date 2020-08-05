@@ -10,7 +10,7 @@ This allows for python code to run on grids such as SGE in an expressive way wit
 When you know you want to deploy your python program on a Grid but will develop the code locally first. The program allows you to easily switch between using multiple processes (e.g. locally) and multiple nodes on a cluster.
 
 ## When not to use this?
-If you know your code is going to run on a single computer then you are better off using a library like [joblib](https://joblib.readthedocs.io/en/latest/).
+If you know your code is going to run on a single computer then you are better off using a library like [joblib](https://joblib.readthedocs.io/en/latest/). If your code is a large pipeline and involves lots of distributed processes then something like [CGAT-core](https://cgat-core.readthedocs.io/en/latest/) would be better. This library aims to be a dropin tool to bridge the gap between large distributed programs and single core programs.
 
 ## Example
 ### Running Locally
