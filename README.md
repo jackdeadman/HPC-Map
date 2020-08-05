@@ -24,13 +24,13 @@ data = list(range(1, elements+1))
 runner = HPCMap(cmd="run.pl", default_jobs=elements, scratch=Path('./exp'))
 
 # Supports closures
-amount = 1
+amount = 2
 def fn(x):
     return x * amount
 
 mapper = runner.map("Multiplier", data, fn)
 summed = mapper.reduce(lambda a, b: a+b)
-print(summed) # Prints 55
+print(summed) # Prints 110
 ```
 ### Running on SGE
 ```python
