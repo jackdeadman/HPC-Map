@@ -58,3 +58,9 @@ runner = HPCMap(cmd="queue.pl", scratch=Path('./exp'))
 ## Usages
 - List of paths to wav files and compute features
 - List of scenarios and compute simulations
+
+## Issues
+Functions that contain objects from:
+- numpy versions >1.16.4
+
+May not work. This is due to a problem with "Pickling" PyCapsule
